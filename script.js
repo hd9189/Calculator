@@ -58,10 +58,17 @@ keypadOpps.forEach(
 function operate(num1, num2, opp){
     if (opp == "/"){
         let n = num1/num2;
-        return n.toFixed(15);
-    } else if (opp == "*"){
+        if (n.toString().length > 20){
+            n = n.toFixed(15);
+        }
+        return n;
+    } else if (opp == "x"){
         let n = num1*num2;
-        return n.toFixed(15);
+        if (n.toString().length > 20){
+            n = n.toFixed(15);
+        }
+        return n;
+
     } else if (opp == "-"){
         return num1 - num2;
     } else if (opp == "+"){
@@ -90,19 +97,19 @@ eval.addEventListener(
 let del = document.querySelector("#del");
 del.addEventListener(
     "click", () => {
-        console.log(num1);
-        console.log(opp);
-        console.log(num2);
+
         if (num2 != ""){
-            num2.slice(0, -1);
-            display.slice(0, -1);
+            num2 = num2.slice(0, -1);
+            display = display.slice(0, -1);
 
         } else if (opp != ""){
             opp = "";
-            display.slice(0, -3);
+            display = display.slice(0, -3);
+
         } else if (num1 != ""){
-            num1.slice(0, -1);
-            display.slice(0, -1);
+            num1 = num1.slice(0, -1);
+            display = display.slice(0, -1);
+
         }
         updateDisplay();
     }
