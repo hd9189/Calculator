@@ -90,6 +90,9 @@ eval.addEventListener(
 let del = document.querySelector("#del");
 del.addEventListener(
     "click", () => {
+        console.log(num1);
+        console.log(opp);
+        console.log(num2);
         if (num2 != ""){
             num2.slice(0, -1);
             display.slice(0, -1);

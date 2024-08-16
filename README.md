@@ -1,0 +1,1 @@
+Cumulative project to test my web dev skills using HTML, CSS, and JS
