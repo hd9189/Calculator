@@ -1,4 +1,4 @@
-let num1 = num2 = 0;
+let num1 = num2 = num3 = "";
 let opp = "";
 let display = "";
 
@@ -10,21 +10,45 @@ function updateDisplay(){
 let keypadButtons = document.querySelectorAll(".displayNumber");
 keypadButtons.forEach(
     (button) => {
+
+        let val = button.getAttribute("value");
+
         button.addEventListener(
             "click", () => {
-                display += button.getAttribute("value");
+                if (num3 != ""){
+                    if (opp == ""){
+                        num1 += val;
+                        num3 = "";
+                        display = "";
+                    } else {
+                        num2 += val;
+                    }
+                } else {
+                    if (opp == ""){
+                        num1 += val;
+                    } else {
+                        num2 += val;
+                    }
+                }
+                
+                display += val;
                 updateDisplay();
             }
         )
     }
 )
 
+// no opp = num1 fill
+// yes opp = num 2 fill
+// num3 fill num1 if num1 is "" when clicking =.  
+
 let keypadOpps = document.querySelectorAll(".displayOperator");
 keypadOpps.forEach(
     (button) => {
         button.addEventListener(
             "click", () => {
-                display += " " + button.getAttribute("value") + " ";
+                opp = button.getAttribute("value");
+                display += " " + opp + " ";
                 updateDisplay();
             }
         )
@@ -34,10 +58,10 @@ keypadOpps.forEach(
 function operate(num1, num2, opp){
     if (opp == "/"){
         let n = num1/num2;
-        return n.toFixed(6);
+        return n.toFixed(15);
     } else if (opp == "*"){
         let n = num1*num2;
-        return n.toFixed(6);
+        return n.toFixed(15);
     } else if (opp == "-"){
         return num1 - num2;
     } else if (opp == "+"){
@@ -45,15 +69,12 @@ function operate(num1, num2, opp){
     }
 }
 
-
-
-// function delete(){
-
-// }
-
 function evaluate(){
-    num1 = operate(Number(num1), Number(num2), opp);
-    display = num1.toString();
+    if (num1 == ""){
+        num1 = num3;
+    }
+    num3 = (operate(Number(num1), Number(num2), opp)).toString();
+    display = num3;
 }
 
 let eval = document.querySelector("#eval");
@@ -61,14 +82,37 @@ eval.addEventListener(
         "click", () => {
         evaluate();
         updateDisplay(); 
+        opp = "";
+        num1 = num2 = ""; 
     }
 )
+
+let del = document.querySelector("#del");
+del.addEventListener(
+    "click", () => {
+        if (num2 != ""){
+            num2.slice(0, -1);
+            display.slice(0, -1);
+
+        } else if (opp != ""){
+            opp = "";
+            display.slice(0, -3);
+        } else if (num1 != ""){
+            num1.slice(0, -1);
+            display.slice(0, -1);
+        }
+        updateDisplay();
+    }
+)
+
 
 let clear = document.querySelector("#clear");
 clear.addEventListener(
     "click", () => {
         display = "";
-        num1 = num2 = 0;
+        num1 = num2 = num3 = "";
+        opp = "";
         updateDisplay();
     }
 )
+

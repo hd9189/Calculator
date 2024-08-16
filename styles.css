@@ -15,13 +15,21 @@
 }
 
 #display{
-    width: 100%;
-    margin-bottom: 20px;
+    width: 90%;
     height: 150px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
-    background-color: rgb(49, 49, 49);
+    align-items: end;
+    background-color: rgb(26, 22, 22);
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#displayText{
+    font-size: 30px;
+    margin-right: 20px;
+
 }
 
 .row{
