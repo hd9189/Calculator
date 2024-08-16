@@ -9,68 +9,59 @@
     </head>
     <body>
         <div id="container">
+
+            <div id="display">
+                <p id="displayText"></p>
+            </div>
+           
             <div id="keypad">
-                <div id="display">
-                    <p></p>
-                </div>
+            
                 <div class="row">
-                    <div class="button">
-                        <p>C</p>
-                    </div>
-                    <div class="button">
-                        <p>÷</p>
-                    </div>
-                    <div class="button">
-                        <p>×</p>
-                    </div>
-                    <div class="button">
-                        <p>␡</p>
-                    </div>
+
+                    <button id="clear" name="C" onclick="">C</button>
+                
+                    <button name="/" class="displayOperator" value="/" onclick="">÷</button>
+                
+                    <button name="x" class="displayOperator" value="x" onclick="">×</button>
+            
+                    <button name="del" onclick="">␡</button>
+                    
                 </div>
 
                 <div class="row">
-                    <div class="button">
-                        <p>7</p>
-                    </div>
-                    <div class="button">
-                        <p>8</p>
-                    </div>
-                    <div class="button">
-                        <p>9</p>
-                    </div>
-                    <div class="button">
-                        <p>-</p>
-                    </div>
+                
+                    <button name="7" class="displayNumber" value="7" onclick="">7</button>
+                
+                    <button name="8" class="displayNumber" value="8" onclick="">8</button>
+                
+                    <button name="9" class="displayNumber" value="9" onclick="">9</button>
+                
+                    <button name="-" class="displayOperator" value="-" onclick="">-</button>
+                
                 </div>
 
                 <div class="row">
-                    <div class="button">
-                        <p>4</p>
-                    </div>
-                    <div class="button">
-                        <p>5</p>
-                    </div>
-                    <div class="button">
-                        <p>6</p>
-                    </div>
-                    <div class="button">
-                        <p>+</p>
-                    </div>
+                    
+                    <button name="4" class="displayNumber" value="4" onclick="">4</button>                   
+                
+                    <button name="5" class="displayNumber" value="5" onclick="">5</button>
+                
+                    <button name="6" class="displayNumber" value="6" onclick="">6</button>
+                
+                    <button name="+" class="displayOperator" value="+" onclick="">+</button>
+                    
                 </div>
 
                 <div class="row">
-                    <div class="button">
-                        <p>1</p>
-                    </div>
-                    <div class="button">
-                        <p>2</p>
-                    </div>
-                    <div class="button">
-                        <p>3</p>
-                    </div>
-                    <div class="button">
-                        <p>=</p>
-                    </div>
+                
+                    <button name="1" class="displayNumber" value="1" onclick="">1</button>
+                
+                    <button name="2" class="displayNumber" value="2" onclick="">2</button>
+            
+                    <button name="3" class="displayNumber" value="3" onclick="">3</button>
+                
+                    <button id="eval" name="=" onclick="">=</button>
+                    
                 </div>
             </div>
         </div>

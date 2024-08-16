@@ -34,7 +34,7 @@
     padding: 0;
 }
 
-.button{
+.row button{
     width: 75px;
     margin: 10px;
     height: 75px;
@@ -43,6 +43,8 @@
     align-items: center;
     background-color: rgb(73, 73, 73);
     border-radius: 50%;
+    border: none;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
+    color: #fafafa;
 }
